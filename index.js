@@ -28,6 +28,61 @@ function getHumanChoice() {
 function playRound(humanChoice, computerChoice) {
     let caseHumanChoice = capitalize(humanChoice);
 
+    if (humanChoice == "Rock"){
+        if (computerChoice == "Papper"){
+            computerScore++;
+            return `You lose ${computerChoice} beats ${humanChoice}`;
+        } else if (computerChoice == "Scissors") {
+            humanScore++;
+            return `You win ${humanChoice} beats ${computerChoice}`;
+        } else{
+            return `Draw, you both picked ${humanChoice}`;
+        }
+    }
+
+     if (humanChoice == "Papper"){
+        if (computerChoice == "Scissor"){
+            computerScore++;
+           return `You lose ${computerChoice} beats ${humanChoice}`;
+        } else if (computerChoice == "Rock") {
+            humanScore++;
+            return `You win ${humanChoice} beats ${computerChoice}`;
+        } else{
+           return `Draw, you both picked ${humanChoice}`;
+        }
+    }
+
+     if (humanChoice == "Scissors"){
+        if (computerChoice == "Rock"){
+            computerScore++;
+            return `You lose ${computerChoice} beats ${humanChoice}`;
+        } else if (computerChoice == "Papper") {
+            humanScore++;
+            return `You win ${humanChoice} beats ${computerChoice}`;
+        } else{
+           return `Draw, you both picked ${humanChoice}`;
+        }
+    }
+
 }
-console.log(capitalize("aWESOMe"));
-console.log(getComputerChoice());
+
+
+function playGame() {
+
+    let rounds = 0;
+
+    while(rounds < 5) {
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
+
+        let message = playRound(humanChoice, computerChoice);
+
+        console.log(message);
+        rounds++
+    }
+
+    console.log(`Score\nYou: ${humanScore}\nComputer: ${computerScore}`);
+
+}
+
+playGame();
