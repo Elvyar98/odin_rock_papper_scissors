@@ -71,7 +71,7 @@ function playGame() {
 
     let rounds = 0;
 
-    while(rounds < 5) {
+   /* while(rounds < 5) {
         let humanChoice = getHumanChoice();
         let computerChoice = getComputerChoice();
 
@@ -79,7 +79,7 @@ function playGame() {
 
         console.log(message);
         rounds++
-    }
+    }*/
 
     console.log(`Score\nYou: ${humanScore}\nComputer: ${computerScore}`);
 
@@ -93,6 +93,15 @@ rock.textContent("Rock");
 scissors.textContent("Scissors");
 papper.textContent("Papper");
 
+document.appendChild(rock);
+document.appendChild(scissors);
+document.appendChild(papper);
 
+const buttons = document.querySelectorAll("button");
+buttons.forEach(button => {
+    button.addEventlistener("click", () => {
+        playRound(button.textContent, computerChoice);
+    });
+});
 
 playGame();
