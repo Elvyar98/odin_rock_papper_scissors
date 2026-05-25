@@ -85,4 +85,14 @@ function playGame() {
 
 }
 
+const rock = document.createElement("button");
+const scissors = document.createElement("button");
+const papper = document.createElement("button");
+
+rock.textContent("Rock");
+scissors.textContent("Scissors");
+papper.textContent("Papper");
+
+
+
 playGame();
