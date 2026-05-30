@@ -14,19 +14,8 @@ function getComputerChoice() {
 
 }
 
-function capitalize(word) {
-    let firstLetter = word[0].toUpperCase();
-    let rest = word.substring(1).toLowerCase();
-    return firstLetter + rest;
-}
-
-
-function getHumanChoice() {
-    return prompt("Pick Rock, Papper or Scissors");
-}
 
 function playRound(humanChoice, computerChoice) {
-    let caseHumanChoice = capitalize(humanChoice);
 
     if (humanChoice == "Rock"){
         if (computerChoice == "Papper"){
@@ -67,41 +56,30 @@ function playRound(humanChoice, computerChoice) {
 }
 
 
-function playGame() {
-
-    let rounds = 0;
-
-   /* while(rounds < 5) {
-        let humanChoice = getHumanChoice();
-        let computerChoice = getComputerChoice();
-
-        let message = playRound(humanChoice, computerChoice);
-
-        console.log(message);
-        rounds++
-    }*/
-
-    console.log(`Score\nYou: ${humanScore}\nComputer: ${computerScore}`);
-
-}
 
 const rock = document.createElement("button");
 const scissors = document.createElement("button");
 const papper = document.createElement("button");
+const div = document.querySelector("div");
 
-rock.textContent("Rock");
-scissors.textContent("Scissors");
-papper.textContent("Papper");
+rock.textContent = "Rock";
+scissors.textContent = "Scissors";
+papper.textContent = "Papper";
 
-document.appendChild(rock);
-document.appendChild(scissors);
-document.appendChild(papper);
+div.appendChild(rock);
+div.appendChild(scissors);
+div.appendChild(papper);
 
 const buttons = document.querySelectorAll("button");
+
+const declaration = document.createElement("p");
+declaration.textContent = "Press a button"
+div.appendChild(declaration);
+
 buttons.forEach(button => {
-    button.addEventlistener("click", () => {
-        playRound(button.textContent, computerChoice);
+    button.addEventListener("click", () => {
+       const message = playRound(button.textContent, getComputerChoice());
+       declaration.textContent = `${message}`;  
     });
 });
 
-playGame();
