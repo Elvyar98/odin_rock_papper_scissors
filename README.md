@@ -1,1 +1,3 @@
 This a simple javascript console game that prompts user for Rock Papper or Scissors. The computer makes it own choice. 
+
+Game uppdated to have buttons the user presses.
